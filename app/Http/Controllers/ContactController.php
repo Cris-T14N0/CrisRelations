@@ -34,6 +34,7 @@ class ContactController extends Controller
         $userId = auth()->id();
         # Validação dos dados
         $validated = $request->validate([
+            
             'phone' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             

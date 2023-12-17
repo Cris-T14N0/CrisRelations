@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Gestor de Contactos') }}
@@ -22,13 +23,13 @@
                             @csrf
 
                             <div>
-                                <x-input-label for="phone" :value="__('Contacto (Número de telefone)')" />
+                                <x-input-label for="phone" :value="__('Contacto (Número de telemóvel)')" />
                                 <x-text-input id="phone" name="phone" type="text" class="block w-full mt-1" :value="old('phone')" required autofocus autocomplete="nome" />
                                 <x-input-error class="mt-2" :messages="$errors->get('phone')" />
                             </div>
 
                             <div>
-                                <x-input-label for="address" :value="__('Endereço')" />
+                                <x-input-label for="address" :value="__('Morada')" />
                                 <x-text-input id="address" name="address" type="text" class="block w-full mt-1" :value="old('address')" required autofocus autocomplete="nome" />
                                 <x-input-error class="mt-2" :messages="$errors->get('address')" />
                             </div>
@@ -54,6 +55,7 @@
     </div>
 
     <table class="mx-auto max-w-7xl sm:px-6 lg:px-8 w-full bg-white border border-spacing-2 border-slate-500 shadow-md">
+
         <thead>
             <tr class="bg-gray-800 text-white">
                 <th class="px-4 py-2">#</th>
@@ -63,9 +65,13 @@
                 <th class="px-4 py-2">Morada</th>
             </tr>
         </thead>
+
         <tbody>
+
             @forelse ($users as $user)
+
                 <tr class="bg-gray-800 text-white">
+                    
                     <td class="px-4 py-2 border border-slate-700">{{ $user->id }}</td>
                     <td class="px-4 py-2 border border-slate-700">{{ $user->name }}</td>
                     <td class="px-4 py-2 border border-slate-700">{{ $user->email }}</td>
@@ -89,11 +95,9 @@
 
                 </tr>
             @empty
-                <tr>
-                    <td colspan="5" class="px-4 py-2 text-center text-gray-500">Ainda sem contactos!</td>
-                </tr>
             @endforelse
         </tbody>
+
     </table>
     
 </x-app-layout>
