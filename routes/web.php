@@ -3,6 +3,8 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TeamController;
+use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('contacts', ContactController::class);
 
     Route::resource('projects', ProjectController::class);
+
+    Route::resource('teams', TeamController::class);
+
+    Route::put('teams/{team}/remove', [TeamController::class,'remove'])->name('teams.remove');
 });
 
 require __DIR__.'/auth.php';

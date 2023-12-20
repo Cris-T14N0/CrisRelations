@@ -30,8 +30,17 @@
 
                             <div>
                                 <x-input-label for="state" :value="__('Insira o ESTADO do seu projeto.')" />
-                                <x-text-input id="state" name="state" type="text" class="block w-full mt-1" :value="old('state')" required autofocus autocomplete="state" />
-                                <x-input-error class="mt-2" :messages="$errors->get('state')" />
+
+                                <select id="state" name="state" class="block text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                                    <option value="Em Projeto">Em Projeto</option>
+                                    <option value="Em Curso">Em Curso</option>
+                                    <option value="Feito">Feito</option>
+
+                                </select>
+                                
+                                    <x-input-error class="mt-2" :messages="$errors->get('state')" />
+                                    
                             </div>
 
                             <div class="flex items-center gap-4">
@@ -139,7 +148,7 @@
                                         <td class="px-4 py-2 border border-slate-700">{{ $project->name }}</td>
                                         <td class="px-4 py-2 border border-slate-700">{{ $project->state }}</td>
                                         
-                    
+
                                     </tr>
                                 @empty
                                 @endforelse

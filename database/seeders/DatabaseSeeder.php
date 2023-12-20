@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Contact;
 use App\Models\Project;
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +23,9 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         Project::factory(10)
+            ->create();
+
+        Team::factory(5)
             ->create();
 
         //User::factory()->cre0ate([
